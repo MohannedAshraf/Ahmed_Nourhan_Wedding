@@ -30,6 +30,10 @@
 }
 
 
+/* =====================================================
+   2. Reset
+   ===================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -81,7 +85,7 @@ a {
 
 
 /* =====================================================
-   2. Common Classes
+   3. Common Classes
    ===================================================== */
 
 .section {
@@ -89,8 +93,7 @@ a {
 
     width: 100%;
 
-    padding:
-        100px 20px;
+    padding: 100px 20px;
 }
 
 
@@ -175,7 +178,7 @@ a {
 
 
 /* =====================================================
-   3. Opening Screen
+   4. Opening Screen
    ===================================================== */
 
 .opening-screen {
@@ -255,7 +258,9 @@ a {
     padding: 60px 25px;
 
     text-align: center;
-    animation: fadeUp 1.2s ease both;
+
+    animation:
+        fadeUp 1.2s ease both;
 }
 
 
@@ -350,6 +355,7 @@ a {
     line-height: 1;
 }
 
+
 .opening-description {
     color: var(--brown);
 
@@ -406,7 +412,7 @@ a {
 
 
 /* =====================================================
-   4. Main Content
+   5. Main Content
    ===================================================== */
 
 .main-content {
@@ -430,7 +436,7 @@ a {
 
 
 /* =====================================================
-   5. Hero Section
+   6. Hero Section
    ===================================================== */
 
 .hero {
@@ -444,8 +450,7 @@ a {
 
     text-align: center;
 
-    padding:
-        120px 20px 90px;
+    padding: 120px 20px 90px;
 
     overflow: hidden;
 
@@ -581,8 +586,9 @@ a {
     transform: rotate(-20deg);
 }
 
+
 /* =====================================================
-   6. Countdown
+   7. Countdown
    ===================================================== */
 
 .countdown-section {
@@ -606,6 +612,11 @@ a {
         repeat(4, 1fr);
 
     gap: 18px;
+
+    /*
+       Countdown numbers are intentionally LTR
+       so the order stays consistent.
+    */
     direction: ltr;
 }
 
@@ -704,8 +715,9 @@ a {
     color: var(--gold-dark);
 }
 
+
 /* =====================================================
-   7. Wedding Details
+   8. Wedding Details
    ===================================================== */
 
 .details-section {
@@ -718,7 +730,9 @@ a {
 }
 
 
-/* Main Date Card */
+/* =====================================================
+   Main Date Card
+   ===================================================== */
 
 .wedding-date-card {
     width: min(600px, 100%);
@@ -769,6 +783,21 @@ a {
 }
 
 
+/*
+=====================================================
+IMPORTANT
+
+The page is RTL because the invitation is Arabic.
+
+But the date itself must always be displayed:
+
+3 أكتوبر 2026
+
+Therefore .date-main is explicitly LTR.
+This keeps the exact same order on desktop and mobile.
+=====================================================
+*/
+
 .date-main {
     position: relative;
 
@@ -782,7 +811,20 @@ a {
 
     direction: ltr;
 
-    margin: 10px 0 20px;
+    margin:
+        10px 0 20px;
+}
+
+
+/*
+   Prevent Arabic RTL text processing
+   from changing the order of date elements.
+*/
+
+.date-main span {
+    unicode-bidi: isolate;
+
+    white-space: nowrap;
 }
 
 
@@ -859,7 +901,9 @@ a {
 }
 
 
-/* Details Cards */
+/* =====================================================
+   Details Cards
+   ===================================================== */
 
 .details-grid {
     width: min(1050px, 100%);
@@ -931,8 +975,10 @@ a {
 
     font-size: 16px;
 }
+
+
 /* =====================================================
-   8. Location
+   9. Location
    ===================================================== */
 
 .location-section {
@@ -1062,8 +1108,9 @@ a {
         0 12px 25px rgba(143, 113, 62, 0.25);
 }
 
+
 /* =====================================================
-   9. Music
+   10. Music
    ===================================================== */
 
 .music-section {
@@ -1123,7 +1170,7 @@ a {
 
 
 /* =====================================================
-   10. RSVP
+   11. RSVP
    ===================================================== */
 
 .rsvp-section {
@@ -1220,7 +1267,7 @@ a {
 
 
 /* =====================================================
-   11. Final Section
+   12. Final Section
    ===================================================== */
 
 .final-section {
@@ -1287,244 +1334,10 @@ a {
 
 
 /* =====================================================
-   12. Mobile
+   13. Mobile
    ===================================================== */
 
 @media (max-width: 768px) {
-
-
-    /* =====================================================
-       7. Wedding Details
-       ===================================================== */
-    
-        .details-section {
-            text-align: center;
-    
-            background:
-                linear-gradient(to bottom,
-                    transparent,
-                    rgba(216, 189, 136, 0.08));
-        }
-    
-    
-        /* Main Date Card */
-    
-        .wedding-date-card {
-            width: min(600px, 100%);
-    
-            margin:
-                0 auto 45px;
-    
-            padding:
-                45px 25px;
-    
-            position: relative;
-    
-            border:
-                1px solid rgba(185, 150, 90, 0.45);
-    
-            background:
-                rgba(255, 250, 243, 0.85);
-    
-            box-shadow:
-                0 15px 40px rgba(102, 82, 56, 0.10);
-        }
-    
-    
-        .wedding-date-card::before {
-            content: "";
-    
-            position: absolute;
-    
-            inset: 10px;
-    
-            border:
-                1px solid rgba(185, 150, 90, 0.20);
-    
-            pointer-events: none;
-        }
-    
-    
-        .date-day {
-            position: relative;
-    
-            font-family: "Amiri", serif;
-    
-            color: var(--gold-dark);
-    
-            font-size: 25px;
-    
-            margin-bottom: 10px;
-        }
-    
-    
-                .date-main {
-                    position: relative;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 14px;
-                    direction: ltr;
-                    margin: 10px 0 20px;
-                }
-    
-    
-        .date-number {
-            font-family: "Amiri", serif;
-    
-            font-size: 75px;
-    
-            line-height: 1;
-    
-            color: var(--brown-dark);
-    
-            font-weight: 700;
-        }
-    
-    
-        .date-month {
-            font-family: "Amiri", serif;
-    
-            font-size: 32px;
-    
-            color: var(--gold-dark);
-    
-            font-weight: 700;
-        }
-    
-    
-        .date-year {
-            font-family: "Amiri", serif;
-    
-            font-size: 30px;
-    
-            color: var(--brown);
-    
-            font-weight: 400;
-        }
-    
-    
-        .date-divider {
-            width: 100px;
-    
-            height: 1px;
-    
-            margin:
-                20px auto;
-    
-            background:
-                linear-gradient(to right,
-                    transparent,
-                    var(--gold),
-                    transparent);
-        }
-    
-    
-        .date-time {
-            position: relative;
-    
-            font-family: "Amiri", serif;
-    
-            font-size: 25px;
-    
-            color: var(--brown-dark);
-    
-            margin-bottom: 5px;
-        }
-    
-    
-        .date-note {
-            position: relative;
-    
-            color: var(--gold-dark);
-    
-            font-size: 15px;
-        }
-    
-    
-        /* Details Cards */
-    
-        .details-grid {
-            width: min(1050px, 100%);
-    
-            margin: auto;
-    
-            display: grid;
-    
-            grid-template-columns:
-                repeat(3, 1fr);
-    
-            gap: 25px;
-        }
-    
-    
-        .detail-card {
-            position: relative;
-    
-            padding: 35px 25px;
-    
-            border:
-                1px solid rgba(185, 150, 90, 0.30);
-    
-            background:
-                rgba(255, 250, 243, 0.65);
-    
-            box-shadow:
-                0 10px 30px rgba(102, 82, 56, 0.07);
-    
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-    
-    
-        .detail-card:hover {
-            transform: translateY(-6px);
-    
-            border-color: var(--gold);
-    
-            box-shadow:
-                0 15px 35px rgba(102, 82, 56, 0.12);
-        }
-    
-    
-        .detail-icon {
-            color: var(--gold);
-    
-            font-size: 30px;
-    
-            margin-bottom: 8px;
-        }
-    
-    
-        .detail-card h3 {
-            font-family: "Amiri", serif;
-    
-            color: var(--brown-dark);
-    
-            font-size: 25px;
-    
-            margin-bottom: 5px;
-        }
-    
-    
-        .detail-card p {
-            color: var(--brown);
-    
-            font-size: 16px;
-        }
-
-
-    .opening-names {
-            gap: 10px;
-    
-            font-size: clamp(42px, 14vw, 70px);
-        }
-    
-        .opening-names span {
-            font-size: clamp(28px, 7vw, 42px);
-        }
 
     .section {
         padding:
@@ -1544,18 +1357,9 @@ a {
     }
 
 
-    .hero {
-        min-height: 100svh;
-
-        padding:
-            100px 18px 70px;
-    }
-
-
-    .hero::before {
-        inset: 15px;
-    }
-
+    /* =========================================
+       Opening Screen
+       ========================================= */
 
     .opening-screen::before {
         inset: 12px;
@@ -1574,26 +1378,63 @@ a {
 
 
     .opening-names {
-        font-size: clamp(55px, 18vw, 85px);
+        gap: 10px;
+
+        font-size: clamp(55px,
+                18vw,
+                85px);
+    }
+
+
+    .opening-names span {
+        font-size: clamp(28px,
+                7vw,
+                42px);
+    }
+
+
+    /* =========================================
+       Hero
+       ========================================= */
+
+    .hero {
+        min-height: 100svh;
+
+        padding:
+            100px 18px 70px;
+    }
+
+
+    .hero::before {
+        inset: 15px;
     }
 
 
     .couple-names {
-        font-size: clamp(65px, 20vw, 100px);
+        font-size: clamp(65px,
+                20vw,
+                100px);
     }
 
 
-        .countdown {
-            width: 100%;
-            display: grid;
-    
-            grid-template-columns:
-                repeat(2, 110px);
-    
-            justify-content: center;
-    
-            gap: 15px;
-        }
+    /* =========================================
+       Countdown
+       ========================================= */
+
+    .countdown {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 110px);
+
+        justify-content: center;
+
+        gap: 15px;
+
+        direction: ltr;
+    }
 
 
     .countdown-box {
@@ -1606,18 +1447,81 @@ a {
     }
 
 
-    .details-grid {
-        grid-template-columns:
-            1fr;
+    /* =========================================
+       Wedding Date
+       ========================================= */
 
-        width: min(500px, 100%);
+    .wedding-date-card {
+        width: 100%;
+
+        padding:
+            45px 20px;
+    }
+
+
+    /*
+       Keep date order exactly the same
+       on mobile:
+
+       3 | أكتوبر | 2026
+    */
+
+    .date-main {
+        direction: ltr;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 10px;
+
+        width: 100%;
+    }
+
+
+    .date-number {
+        font-size: 65px;
+    }
+
+
+    .date-month {
+        font-size: 28px;
+    }
+
+
+    .date-year {
+        font-size: 27px;
+    }
+
+
+    .date-time {
+        font-size: 23px;
+    }
+
+
+    /* =========================================
+       Details Cards
+       ========================================= */
+
+    .details-grid {
+        grid-template-columns: 1fr;
+
+        width: min(500px,
+                100%);
     }
 
 
     .detail-card {
-        padding: 30px 20px;
+        padding:
+            30px 20px;
     }
 
+
+    /* =========================================
+       Decorative Flower
+       ========================================= */
 
     .decorative-flower {
         font-size: 65px;
@@ -1630,11 +1534,31 @@ a {
         left: 10px;
     }
 
+
+    /* =========================================
+       Location
+       ========================================= */
+
+    .location-card {
+        padding:
+            40px 20px;
+    }
+
+
+    /* =========================================
+       RSVP
+       ========================================= */
+
+    .rsvp-card {
+        padding:
+            40px 20px;
+    }
+
 }
 
 
 /* =====================================================
-   13. Small Phones
+   14. Small Phones
    ===================================================== */
 
 @media (max-width: 420px) {
@@ -1656,17 +1580,24 @@ a {
     }
 
 
-        .countdown {
-            width: 100%;
-            display: grid;
-    
-            grid-template-columns:
-                repeat(2, 100px);
-    
-            justify-content: center;
-    
-            gap: 12px;
-        }
+    /* =========================================
+       Countdown
+       ========================================= */
+
+    .countdown {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 100px);
+
+        justify-content: center;
+
+        gap: 12px;
+
+        direction: ltr;
+    }
 
 
     .countdown-box {
@@ -1687,6 +1618,52 @@ a {
     }
 
 
+    /* =========================================
+       Wedding Date
+       ========================================= */
+
+    .wedding-date-card {
+        padding:
+            40px 15px;
+    }
+
+
+    .date-main {
+        gap: 7px;
+
+        direction: ltr;
+    }
+
+
+    .date-number {
+        font-size: 58px;
+    }
+
+
+    .date-month {
+        font-size: 25px;
+    }
+
+
+    .date-year {
+        font-size: 24px;
+    }
+
+
+    .date-time {
+        font-size: 21px;
+    }
+
+
+    .date-note {
+        font-size: 14px;
+    }
+
+
+    /* =========================================
+       Location & RSVP
+       ========================================= */
+
     .location-card,
     .rsvp-card {
         padding:
@@ -1694,8 +1671,10 @@ a {
     }
 
 }
+
+
 /* =====================================================
-   Animations
+   15. Animations
    ===================================================== */
 
 @keyframes fadeUp {
