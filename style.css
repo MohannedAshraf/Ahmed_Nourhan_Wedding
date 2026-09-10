@@ -45,6 +45,8 @@ html {
 body {
     font-family: "Cairo", sans-serif;
 
+    direction: rtl;
+
     background:
         radial-gradient(circle at top left,
             rgba(216, 189, 136, 0.16),
@@ -604,6 +606,7 @@ a {
         repeat(4, 1fr);
 
     gap: 18px;
+    direction: ltr;
 }
 
 
@@ -777,7 +780,7 @@ a {
 
     gap: 14px;
 
-    direction: ltr;
+    direction: rtl;
 
     margin: 10px 0 20px;
 }
@@ -1586,12 +1589,17 @@ a {
     }
 
 
-    .countdown {
-        grid-template-columns:
-            repeat(2, 110px);
-
-        gap: 15px;
-    }
+        .countdown {
+            width: 100%;
+            display: grid;
+    
+            grid-template-columns:
+                repeat(2, 110px);
+    
+            justify-content: center;
+    
+            gap: 15px;
+        }
 
 
     .countdown-box {
@@ -1654,12 +1662,17 @@ a {
     }
 
 
-    .countdown {
-        grid-template-columns:
-            repeat(2, 100px);
-
-        gap: 12px;
-    }
+        .countdown {
+            width: 100%;
+            display: grid;
+    
+            grid-template-columns:
+                repeat(2, 100px);
+    
+            justify-content: center;
+    
+            gap: 12px;
+        }
 
 
     .countdown-box {
