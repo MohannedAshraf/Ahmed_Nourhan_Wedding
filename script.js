@@ -159,32 +159,3 @@ setInterval(
 
 
 
-
-/* =====================================================
-   8. RSVP
-   ===================================================== */
-
-const rsvpButton =
-    document.getElementById("rsvpButton");
-
-
-rsvpButton.addEventListener("click", function (event) {
-
-    event.preventDefault();
-
-    /*
-        هنا هنحط رابط Google Form لاحقًا.
-
-        مثال:
-
-        window.open(
-            "YOUR_GOOGLE_FORM_LINK",
-            "_blank"
-        );
-    */
-
-    alert(
-        "سيتم إضافة نموذج تأكيد الحضور هنا ❤️"
-    );
-
-});
