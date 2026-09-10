@@ -45,7 +45,7 @@ html {
 body {
     font-family: "Cairo", sans-serif;
 
-    
+    direction: rtl;
 
     background:
         radial-gradient(circle at top left,
@@ -1358,21 +1358,16 @@ a {
         }
     
     
-        .date-main {
-            position: relative;
-    
-            display: flex;
-    
-            align-items: center;
-    
-            justify-content: center;
-    
-            gap: 14px;
-    
-            direction: ltr;
-    
-            margin: 10px 0 20px;
-        }
+                .date-main {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 14px;
+                    direction: ltr;
+                    flex-direction: row;
+                    margin: 10px 0 20px;
+                }
     
     
         .date-number {
