@@ -780,7 +780,7 @@ a {
 
     gap: 14px;
 
-    direction: rtl;
+    direction: ltr;
 
     margin: 10px 0 20px;
 }
@@ -1365,7 +1365,6 @@ a {
                     justify-content: center;
                     gap: 14px;
                     direction: ltr;
-                    flex-direction: row;
                     margin: 10px 0 20px;
                 }
     
